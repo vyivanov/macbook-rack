@@ -1,18 +1,23 @@
-difference() {
-    rail = 3.5;
-    thickness = 20;
-    height = 20;
-    length = 30;
-    radius = thickness / 2;
-    scale_x = 1;
-    scale_y = length / radius;
-    scale_z = height / radius;
-    scale([scale_x, scale_y, scale_z])
-        sphere(r=radius);
-    scale([scale_x, scale_y, scale_z])
-        translate([0, 0, -radius/2])
-            cube([radius*2, radius*2, radius], center=true);
-    scale([1, scale_y, scale_z])
-        translate([0, 0, radius/1.5])
-            cube([rail, radius*2, radius], center=true);
-}
+module create_rack(slot, thickness, length, height)  {
+    difference() {
+        radius = thickness / 2;
+        scale_x = 1;
+        scale_y = length / radius;
+        scale_z = height / radius;
+        scale([scale_x, scale_y, scale_z])
+            sphere(r=radius);
+        scale([scale_x, scale_y, scale_z])
+            translate([0, 0, -radius/2])
+                cube([radius*2, radius*2, radius], center=true);
+        scale([1, scale_y, scale_z])
+            translate([0, 0, radius/1.5])
+                cube([slot, radius*2, radius], center=true);
+    }
+};
+
+create_rack(
+    slot=3.5,       // size of the space a macbook is being inserted to
+    thickness=20,   // size of the rack in 'x' axis
+    length=30,      // size of the rack in 'y' axis
+    height=20       // size of the rack in 'z' axis
+);
