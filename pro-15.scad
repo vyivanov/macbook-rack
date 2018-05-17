@@ -16,8 +16,8 @@ module create_rack(slot, thickness, length, height)  {
 };
 
 create_rack(
-    slot=3.5,       // size of the space a macbook is being inserted to
-    thickness=20,   // size of the rack in 'x' axis
-    length=30,      // size of the rack in 'y' axis
-    height=20       // size of the rack in 'z' axis
+    slot=18,        // size of the space a macbook is being inserted to
+    thickness=120,  // size of the rack in 'x' axis
+    length=80,      // size of the rack in 'y' axis
+    height=80       // size of the rack in 'z' axis
 );
